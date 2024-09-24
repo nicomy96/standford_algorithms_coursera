@@ -82,13 +82,17 @@ int main(){
     srand((unsigned) time(NULL));
     const int range_max  = 100;
     const int range_min = 1;
-    int array_size;
-    
-    printf("Digit the size of the array\n");
-    scanf("%d", &array_size);
-    while(array_size < 1){
-       printf("%d is not a valid size, the size of the array must be greater than 0\nDigit a new size:\n", array_size); 
-       scanf("%d", &array_size);
+    int array_size = 0;
+    char buf[6] = "";
+    while(1){
+        printf("Digit the size for the random unimodal array\n");
+        fgets(buf, sizeof buf, stdin);
+        array_size = strtol(buf, NULL, 0);
+        if(array_size > 0){
+            break;
+        }else{
+            printf("Invalid Input, the array size must be grater than 0\n"); 
+        }
     }
 
     int* p = malloc(sizeof(int) * array_size);
