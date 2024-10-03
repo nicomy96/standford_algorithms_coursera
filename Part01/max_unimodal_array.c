@@ -28,7 +28,7 @@ int partition(int *p, size_t start, size_t end){
     size_t pIndex = start;
     int pivot = *(p + end);
     for(size_t i = start; i < end; i++){
-        if(*(p + i) <=  pivot){
+        if(*(p + i) <= pivot){
             swap(p, i, pIndex);
             pIndex++;
         }
@@ -154,10 +154,8 @@ int main(){
     size_t max_value_index = create_random_unimodal_array(r, array_size);
     printf("This is the unimodal array: ");
     print_array(r, array_size);
-    printf("max value index: %lu\n", max_value_index);
     printf("max value %d\n", *(r + max_value_index));
     size_t max_value_index_alg = find_max_value_unimodal_array(r, 0, array_size - 1);
-    printf("max value index algorithm: %lu\n", max_value_index_alg);
     printf("max value algorithm %d\n", *(r + max_value_index_alg));
     free(r);
 }
